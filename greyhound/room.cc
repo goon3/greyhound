@@ -3,7 +3,6 @@
 #include <SDL_image.h>
 #include "player.h"
 #include "roommap.h"
-#include "roommap1.h"
 
 Room::Room()
 {
