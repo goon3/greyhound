@@ -8,12 +8,6 @@
 Room::Room()
 {
 
-	SDL_Surface *s = IMG_Load("./pics/tile-grass1-25x25.png");
-	Tile t;
-	t.id = 10;
-	t.surface = s;	
-	_tiles.push_back(t);
-
 }
 
 Room::~Room()
@@ -31,15 +25,6 @@ void Room::update(Box const& b)
 
 void Room::draw(SDL_Surface *screen)
 {
-	SDL_Rect dest;
-
-	for (int i = 0; i < 20; i++) {
-		for (int j = 0; j < 24; j++) {
-			dest.x = j*25;
-			dest.y = i*25;
-			SDL_BlitSurface(_tiles[0].surface , NULL, screen, &dest);
-		}
-	}	
 }
 
 void Room::updatePlayer(Player const& p)

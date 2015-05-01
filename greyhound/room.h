@@ -17,7 +17,7 @@ class Room
 
 		void collide(Box const&);
 		void update(Box const&);
-		void draw(SDL_Surface *screen);
+		virtual void draw(SDL_Surface *screen);
 
 		void updatePlayer(Player const&);
 
@@ -27,6 +27,5 @@ class Room
 	private:
 		SDL_Surface *_bg;
 		std::list<Box> _boxes;
-		std::vector<Tile> _tiles;
 };
 #endif

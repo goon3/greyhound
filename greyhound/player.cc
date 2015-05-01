@@ -50,7 +50,7 @@ void Player::draw(SDL_Surface *screen)
 
 	SDL_BlitSurface(_images[index++], NULL, screen, &dest);
 
-	if (index >= 4)
+	if (index >= 2)
 		index = 0;
 }
 

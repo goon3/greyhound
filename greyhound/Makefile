@@ -7,6 +7,8 @@ OBJS= \
 	box.o \
 	player.o \
 	room.o \
+	tileroom.o \
+	fieldsroom.o \
 		
 all: target
 

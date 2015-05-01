@@ -1,7 +1,7 @@
 #include <SDL.h>
 
 #include "player.h"
-#include "room.h"
+#include "fieldsroom.h"
 
 int main(int argc, char *argv[])
 {
@@ -11,7 +11,7 @@ int main(int argc, char *argv[])
 
 
 	Player player;
-	Room room;
+	FieldsRoom room;
 	room.loadRoomFields();
 
 	SDL_EnableKeyRepeat(1000, 1000);
