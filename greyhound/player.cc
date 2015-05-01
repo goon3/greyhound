@@ -1,10 +1,10 @@
 #include "player.h"
 #include <SDL_image.h>
 
-Player::Player()
+Player::Player(int xx, int yy)
 {
-	x = 0;
-	y = 0;
+	x = xx;
+	y = yy;
 	index = 0;
 	
 	SDL_Surface *img = IMG_Load("./pics/player1-35x50.png");
@@ -22,26 +22,37 @@ void Player::moveLeft(Room const& r)
 {
 	dx = -1;
 	x += dx;
+	dy = 0;
 }
 
 void Player::moveRight(Room const& r)
 {
 	dx = 1;
 	x += dx;
+	dy = 0;
 }
 
 void Player::moveUp(Room const& r)
 {
 	dy = -1;
 	y += dy;
+	dx = 0;
 }
 
 void Player::moveDown(Room const& r)
 {
 	dy = 1;
 	y += dy;
+	dx = 0;
 }
 
+void Player::undoMove(Room& room)
+{
+	if (dx == 0) 
+		y -= dy;
+	else if (dy == 0)
+		x -= dx;
+}
 void Player::draw(SDL_Surface *screen)
 {
 	SDL_Rect dest;
@@ -65,5 +76,15 @@ bool Player::movedToMiddle()
 		return x >= 320;
 	else if (dx > 0)
 		return x <= 320;
+}
+
+int Player::getX()
+{
+	return x;
+}
+
+int Player::getY()
+{
+	return y;
 }
  

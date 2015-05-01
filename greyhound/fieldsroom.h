@@ -3,6 +3,8 @@
 
 #include "tileroom.h"
 
+class Player;
+
 class FieldsRoom : public TileRoom
 {
 	public:
@@ -10,6 +12,7 @@ class FieldsRoom : public TileRoom
 		~FieldsRoom();
 
 		void draw(SDL_Surface *);
+		void collide(Player &);
 
 		void loadRoomFields();
 	private:

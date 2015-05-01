@@ -10,7 +10,8 @@ int main(int argc, char *argv[])
 	SDL_Surface *screen = SDL_SetVideoMode(640,480,32,NULL);
 
 
-	Player player;
+	Player player(32,32);
+	//Player player(320,240);
 	FieldsRoom room;
 	room.loadRoomFields();
 
@@ -33,6 +34,7 @@ int main(int argc, char *argv[])
 				player.moveDown(room);
 		}
 		room.draw(screen);
+		room.collide(player);
 		player.draw(screen);
 		SDL_Flip(screen);
 

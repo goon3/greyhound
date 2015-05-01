@@ -22,3 +22,4 @@ Tile TileRoom::getTile(int i)
 {
 	return _tiles[i];
 }
+

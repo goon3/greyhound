@@ -2,6 +2,7 @@
 #include <SDL.h>
 #include <SDL_image.h>
 #include "fieldsroommap.h"
+#include "player.h"
 
 FieldsRoom::FieldsRoom()
 {
@@ -27,8 +28,8 @@ void FieldsRoom::draw(SDL_Surface *screen)
 {
 	SDL_Rect dest;
 
-	for (int i = 0; i < 20; i++) {
-		for (int j = 0; j < 24; j++) {
+	for (int i = 0; i < 19; i++) {
+		for (int j = 0; j < 25; j++) {
 			dest.x = j*25;
 			dest.y = i*25;
 
@@ -45,6 +46,17 @@ void FieldsRoom::draw(SDL_Surface *screen)
 				break;
 			}
 		}
+	}	
+}
+
+void FieldsRoom::collide(Player& player)
+{
+	switch (fieldsroommap[player.getX() % 25 +player.getY() % 25 * 25]) {
+		case 20:
+			player.undoMove(*this);
+			break;	
+		default:
+			break;
 	}	
 }
 

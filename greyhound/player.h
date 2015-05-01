@@ -9,7 +9,7 @@ class Room;
 class Player
 {
 	public:
-		Player();
+		explicit Player(int xx, int yy);
 		~Player();
 
 		void moveLeft(Room const& r);
@@ -18,8 +18,12 @@ class Player
 		void moveDown(Room const& r);
 		bool movedToMiddle();
 		int getMove();
+		void undoMove(Room& room);
 
 		void draw(SDL_Surface *screen);
+
+		int getX();
+		int getY();
 
 	private:
 		int x,y,dx,dy,index;
