@@ -2,9 +2,19 @@
 #include <SDL.h>
 #include <SDL_image.h>
 #include "player.h"
+#include "roommap.h"
+#include "roommap1.h"
 
 Room::Room()
-{}
+{
+
+	SDL_Surface *s = IMG_Load("./pics/tile-grass1-25x25.png");
+	Tile t;
+	t.id = 10;
+	t.surface = s;	
+	_tiles.push_back(t);
+
+}
 
 Room::~Room()
 {}
@@ -22,11 +32,14 @@ void Room::update(Box const& b)
 void Room::draw(SDL_Surface *screen)
 {
 	SDL_Rect dest;
-	dest.x = 0;
-	dest.y = 0;
 
-	SDL_BlitSurface(_bg, NULL, screen, &dest);
-	
+	for (int i = 0; i < 20; i++) {
+		for (int j = 0; j < 24; j++) {
+			dest.x = j*25;
+			dest.y = i*25;
+			SDL_BlitSurface(_tiles[0].surface , NULL, screen, &dest);
+		}
+	}	
 }
 
 void Room::updatePlayer(Player const& p)
@@ -41,11 +54,9 @@ void Room::updatePlayer(Player const& p)
 	}	
 }
 
-void Room::loadRoomCastle()
+void Room::loadRoomFields()
 {
-	_bg = IMG_Load("./pics/parapapalace-test.bmp");
-	_boxes.push_back(Box(0,420,640,10));
-
+	
 }
 
 

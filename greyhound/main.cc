@@ -12,7 +12,7 @@ int main(int argc, char *argv[])
 
 	Player player;
 	Room room;
-	room.loadRoomCastle();
+	room.loadRoomFields();
 
 	SDL_EnableKeyRepeat(1000, 1000);
 
@@ -32,7 +32,7 @@ int main(int argc, char *argv[])
 			if (e.key.keysym.sym == SDLK_DOWN)
 				player.moveDown(room);
 		}
-		//room.draw(screen);
+		room.draw(screen);
 		player.draw(screen);
 		SDL_Flip(screen);
 
